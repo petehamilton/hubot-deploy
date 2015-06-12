@@ -32,7 +32,7 @@ module.exports = (robot) ->
       deployment = new Deployment(name)
       formatter  = new Formatters.WhereFormatter(deployment)
 
-      msg.send formatter.message()
+      msg.send "```\n#{formatter.message()}\n```"
     catch err
       console.log err
 
@@ -53,7 +53,7 @@ module.exports = (robot) ->
 
       deployment.latest (deployments) ->
         formatter = new Formatters.LatestFormatter(deployment, deployments)
-        msg.send formatter.message()
+        msg.send "```\n#{formatter.message()}\n```"
 
     catch err
       console.log err
